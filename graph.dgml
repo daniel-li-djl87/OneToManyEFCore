@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Database" Label="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&amp;quot;C:\Users\Daniel Li\EFGetStarted.EFCoreTest.mdf&amp;quot;;Integrated Security=True;Connect Timeout=30" Category="Database" Group="Expanded" />
+    <Node Id="dbo" Label="dbo" Category="Schema" Group="Expanded" />
+    <Node Id="dbo.Members" Label="dbo.Members" Category="Table" Group="Collapsed" />
+    <Node Id="dbo.Members_MemberId" Label="MemberId" Category="Field Primary" Description="int" />
+    <Node Id="dbo.Members_Name" Label="Name" Category="Field Optional" Description="ntext" />
+    <Node Id="dbo.Members_Salary" Label="Salary" Category="Field" Description="float" />
+    <Node Id="dbo.Members_TeamId" Label="TeamId" Category="Field Foreign" Description="int" />
+    <Node Id="dbo.Members_Discriminator" Label="Discriminator" Category="Field" Description="ntext" />
+    <Node Id="dbo.Members_WinRate" Label="WinRate" Category="Field Optional" Description="float" />
+    <Node Id="dbo.Members_Number" Label="Number" Category="Field Optional" Description="int" />
+    <Node Id="dbo.Members_Ppg" Label="Ppg" Category="Field Optional" Description="float" />
+    <Node Id="dbo.Team" Label="dbo.Team" Category="Table" Group="Collapsed" />
+    <Node Id="dbo.Team_TeamId" Label="TeamId" Category="Field Primary" Description="int" />
+    <Node Id="dbo.Team_Name" Label="Name" Category="Field Optional" Description="ntext" />
+    <Node Id="dbo.Teams" Label="dbo.Teams" Category="Table" Group="Collapsed" />
+    <Node Id="dbo.Teams_TeamId" Label="TeamId" Category="Field Primary" Description="int" />
+    <Node Id="dbo.Teams_Name" Label="Name" Category="Field Optional" Description="ntext" />
+  </Nodes>
+  <Links>
+    <Link Source="Database" Target="dbo" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Members" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_MemberId" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_Name" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_Salary" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_TeamId" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_Discriminator" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_WinRate" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_Number" Category="Contains" />
+    <Link Source="dbo.Members" Target="dbo.Members_Ppg" Category="Contains" />
+    <Link Source="dbo.Members_TeamId" Target="dbo.Team_TeamId" Label="FK_Members_Team_TeamId" Category="Foreign Key" />
+    <Link Source="dbo" Target="dbo.Team" Category="Contains" />
+    <Link Source="dbo.Team" Target="dbo.Team_TeamId" Category="Contains" />
+    <Link Source="dbo.Team" Target="dbo.Team_Name" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Teams" Category="Contains" />
+    <Link Source="dbo.Teams" Target="dbo.Teams_TeamId" Category="Contains" />
+    <Link Source="dbo.Teams" Target="dbo.Teams_Name" Category="Contains" />
+  </Links>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>
